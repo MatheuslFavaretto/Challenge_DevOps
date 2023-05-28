@@ -17,7 +17,6 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t matheuslfavaretto/django_api:latest .'
-                    }
                 }
             }
         }

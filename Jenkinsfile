@@ -23,10 +23,9 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                script { {
-                        sh 'sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-                        sh 'sudo docker push matheuslfavaretto/django_api:latest'
-                    }
+                script {
+                    sh 'sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+                    sh 'sudo docker push matheuslfavaretto/django_api:latest'
                 }
             }
         }

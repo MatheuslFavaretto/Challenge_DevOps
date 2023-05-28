@@ -23,8 +23,7 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIALS_ID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                script { {
                         sh 'sudo docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
                         sh 'sudo docker push matheuslfavaretto/django_api:latest'
                     }

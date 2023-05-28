@@ -13,7 +13,7 @@ SECRET_KEY = '_&#6!!_&e!b*2y*woaoqy!g=z+en8)%3_g9(z&@cm4_&h#7wis'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -64,12 +64,19 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'aluraflix',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'db',  # Usando o nome do serviço como host
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation

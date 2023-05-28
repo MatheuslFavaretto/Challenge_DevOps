@@ -1,0 +1,37 @@
+version: "3.9"
+
+networks:
+  my_network:  # Nome da rede personalizada
+    driver: bridge
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=aluraflix
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network  # Atribui o serviço à rede personalizada
+
+  django-app:
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_DB=aluraflix
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_HOST=db  # Usando o nome do serviço como host
+      - DJANGO_SUPERUSER_EMAIL=alura@alura.com
+      - DJANGO_SUPERUSER_PASSWORD=123456789
+    depends_on:
+      - db
+    networks:
+      - my_network  # Atribui o serviço à rede personalizada

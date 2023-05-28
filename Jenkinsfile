@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     dir('infra/aws/env/dev/') {
-                        sh 'terraform init'
+                        sh 'ls'
                     }
                 }
             }

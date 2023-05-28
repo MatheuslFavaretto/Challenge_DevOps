@@ -11,7 +11,7 @@ pipeline {
         stage('Infrastructure Creation or Update') {
             steps {
                 script {
-                    dir('infra/aws/env/dev') {
+                    dir('infra/aws/env/dev/') {
                         sh 'terraform init'
                     }
                 }

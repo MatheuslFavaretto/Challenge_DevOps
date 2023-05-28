@@ -9,9 +9,7 @@ media
 # Environments
 .env
 .venv
-env/
 venv/
-ENV/
 env.bak/
 venv.bak/
 pythonenv*
@@ -25,6 +23,7 @@ pythonenv*
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.lock.hcl
 
 # Crash log files
 crash.log

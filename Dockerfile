@@ -11,7 +11,6 @@ COPY . .
 
 ENV port 8000
 EXPOSE 8000
-EXPOSE 5432
 
 RUN chmod +x run.sh
 

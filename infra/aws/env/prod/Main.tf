@@ -1,4 +1,4 @@
-module "dev" {
+module "prod" {
   source = "../../"
 
   nome_repositorio = "prod"
@@ -7,5 +7,5 @@ module "dev" {
 }
 
 output "IP_alb" {
-  value = module.dev.IP
+  value = module.prod.IP
 }

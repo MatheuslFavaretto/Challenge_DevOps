@@ -5,6 +5,8 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
         DOCKERHUB_PASSWORD = credentials('DOCKERHUB_PASSWORD')
+        ENV = "${env.BRANCH_NAME == 'master' ? 'PROD' : 'DEV'}"
+        BRANCH = "${env.BRANCH_NAME}"
     }
     stages {
         stage('Checkout Source') {
@@ -42,6 +44,13 @@ pipeline {
         }
 
         stage('Infrastructure Destroy') {
+            when {
+                not {
+                    expression {
+                        return env.ENV == 'PROD'
+                    }
+                }
+            }
             steps {
                 script {
                     dir('infra/aws/env/dev/') {

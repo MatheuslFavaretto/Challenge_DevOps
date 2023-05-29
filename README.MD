@@ -37,6 +37,8 @@ Temos um período de tempo de 4 semanas para desenvolver o projeto. Nas 3 primei
 
 ![image](https://github.com/MatheuslFavaretto/terraform-pipeline/assets/116848225/d069bd19-7649-4dc9-90ff-7a19727d1adf)
 
+![image](https://github.com/MatheuslFavaretto/Challenge_DevOps/assets/116848225/5bcb9faf-6e11-4189-965c-240e3c10069c)
+
 -----
 
 

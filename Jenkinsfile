@@ -9,6 +9,12 @@ pipeline {
         BRANCH = "${env.BRANCH_NAME}"
     }
     stages {
+        stage('Slack Notification Start') {
+            steps {
+                slackSend(message: "Pipeline ${env.BRANCH_NAME} foi iniciada", sendAsText: true)
+            }
+        }
+
         stage('Checkout Source') {
             steps {
                 git url: 'https://github.com/MatheuslFavaretto/Challenge_DevOps.git', branch: 'dev_jenkins'
@@ -32,7 +38,7 @@ pipeline {
             }
         }
 
-         stage('Infrastructure Creation or Update') {
+        stage('Infrastructure Creation or Update') {
             steps {
                 script {
                     dir(env.ENV == 'PROD' ? 'infra/aws/env/prod/' : 'infra/aws/env/dev/') {
@@ -58,6 +64,12 @@ pipeline {
                         sh 'terraform destroy -auto-approve'
                     }
                 }
+            }
+        }
+
+        stage('Slack Notification End') {
+            steps {
+                slackSend(message: "Pipeline ${env.BRANCH_NAME} foi finalizada", sendAsText: true)
             }
         }
     }

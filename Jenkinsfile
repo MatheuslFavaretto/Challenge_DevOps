@@ -32,10 +32,10 @@ pipeline {
             }
         }
 
-        stage('Infrastructure Creation or Update') {
+         stage('Infrastructure Creation or Update') {
             steps {
                 script {
-                    dir('infra/aws/env/dev/') {
+                    dir(env.ENV == 'PROD' ? 'infra/aws/env/prod/' : 'infra/aws/env/dev/') {
                         sh 'terraform init'
                         sh 'terraform apply -auto-approve'
                     }

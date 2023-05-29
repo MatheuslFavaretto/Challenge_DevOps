@@ -7,14 +7,20 @@ pipeline {
         DOCKERHUB_PASSWORD = credentials('DOCKERHUB_PASSWORD')
         ENV = "${env.BRANCH_NAME == 'master' ? 'PROD' : 'DEV'}"
         BRANCH = "${env.BRANCH_NAME}"
+        Slack_toke = credentials('Slack_toke')
     }
-    stages {
         stage('Slack Notification Start') {
             steps {
-                slackSend(message: "Pipeline ${env.BRANCH_NAME} foi iniciada", sendAsText: true)
+                slackSend(
+                    baseUrl: 'https://hooks.slack.com/services',
+                    tokenCredentialId: 'Slack_toke',
+                    channel: '#C059X8PFP42',
+                    message: "Pipeline ${env.BRANCH_NAME} foi iniciada",
+                    sendAsText: true
+                )
             }
         }
-
+        
         stage('Checkout Source') {
             steps {
                 git url: 'https://github.com/MatheuslFavaretto/Challenge_DevOps.git', branch: 'dev_jenkins'

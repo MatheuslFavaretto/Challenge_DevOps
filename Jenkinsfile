@@ -5,6 +5,7 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
         DOCKERHUB_USERNAME = credentials('DOCKERHUB_USERNAME')
         DOCKERHUB_PASSWORD = credentials('DOCKERHUB_PASSWORD')
+        BRANCH_NAME = credentials('BRANCH_NAME')
         ENV = "${env.BRANCH_NAME == 'master' ? 'PROD' : 'DEV'}"
         BRANCH = "${env.BRANCH_NAME}"
     }

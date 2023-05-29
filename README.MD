@@ -19,7 +19,6 @@ Temos um período de tempo de 4 semanas para desenvolver o projeto. Nas 3 primei
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![Simbolo do infinito com processos DevOps](https://img.mandic.com.br/2018/06/Devops-o-que-e-DevOps-significado.png?rel=outbound#vitrinedev)
 
-## 📃 Detalhes do projeto
 
 ## ⚙️ Funcionalidades
 
@@ -28,13 +27,24 @@ Temos um período de tempo de 4 semanas para desenvolver o projeto. Nas 3 primei
 - [X] Integração e entrega contínua;
 
 
-## Branch main, dev_jenkis (dev_github em construção)
+## 📃 Detalhes do projeto
 
-- main possui o arquivo docker-compose, para rodar a applicação utilizar o docker-compose up -d
+- A branch 'main' foi utilizada para testar a aplicação e sua conexão com o banco de dados. Para executá-la, utilize o arquivo docker-compose. Para rodar a aplicação, utilize o comando 'docker-compose up -d
 
-- dev_jenkins com a applicação eu fiz a IaC na AWS fazendo deploy do ECS com Terraform, rotina CI/CD utilizando o Jenkins(adicionando Slack em construção...)
+- A branch 'dev_jenkins' é destinada ao ambiente de desenvolvimento CI/CD no Jenkins. Nesse ambiente, as etapas Declarativas seguidas incluem: Checkout SCM, Checkout Source, Build Docker Image, Push to Docker Hub, Infrastructure Creation or Update, Infrastructure Destroy. Utilizei IaC com Terraform para criar a infraestrutura na AWS e implantar o ECS. Além disso, estou atualmente em processo de implementação do Slack. Como se trata de um ambiente de desenvolvimento, a infraestrutura será destruída após a conclusão dos testes.
 
 
 
 ![image](https://github.com/MatheuslFavaretto/terraform-pipeline/assets/116848225/d069bd19-7649-4dc9-90ff-7a19727d1adf)
+
+-----
+
+
+## 📝 Licença
+
+API desenvolvido por [Alura](https://www.alura.com.br) e utilizado no Curso de Django.
+
+Instrutor: [Guilherme Lima](https://cursos.alura.com.br/user/guilhermelima)
+
+-----
 
